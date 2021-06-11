@@ -1,0 +1,44 @@
+.home-filterHome{
+  display: flex;
+  padding-top: 2%;
+}
+
+.filter-container2 {
+  border-radius: 8px;
+  height: auto;
+  width: 94%;
+  margin-top: 3%;
+  margin-left: 3%;
+  margin-bottom: 1px;
+  background-color: #f8f8f8;
+}
+.list-filter-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  height: auto;
+  width: 98%;
+  margin-left: -19%;
+  margin-bottom: 1px;
+  background-color: #f8f8f8;
+}
+.searchBlok2 {
+  position: sticky;
+  opacity: 0.9;
+  background-color: #17b978;
+  border-radius: 10px;
+  width: 56%;
+  margin-left: 10%;
+  padding-bottom: 2%;
+}
+.flex-container2 {
+  margin-top: 10px;
+  display: none;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  align-content: space-between;
+  justify-content: space-around;
+  padding: 0;
+  list-style: none;
+}
