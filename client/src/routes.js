@@ -14,7 +14,7 @@ export const useRoutes = (props) => {
         <Home state={props.state} />
       </Route>
       <Route path="/add">
-        <Announcement/>
+        <Announcement state={props.state}/>
       </Route>
       <Route path="/myhome/:id">
       <Manue/>

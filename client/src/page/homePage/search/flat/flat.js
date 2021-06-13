@@ -1,87 +1,67 @@
 import React, { Component, useRef } from "react";
 import "./flat.css";
+import { useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Flat = (props) => {
 
-  const formref = useRef();
-  const rent = useRef();
-  const sale = useRef();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  
+  const onSubmit = (data) => console.log(data);
+
   const checkboxes = useRef();
   const checkboxes2 = useRef();
-
-  const onButtonClickSale = (sale) => {};
-  const onButtonClickRent = (rent) => {};
-
   let expanded = false;
-
-  function showCheckboxes() {
-    if (!expanded) {
-      checkboxes.current.style.display = "block";
-      expanded = true;
-    } else {
-      checkboxes.current.style.display = "none";
-      expanded = false;
-    }
-  }
-
   let expanded2 = false;
 
-  function showCheckboxes2() {
-    if (!expanded2) {
-      checkboxes2.current.style.display = "block";
-      expanded2 = true;
+  const showCheckboxes = (expand, checkbox) => {
+    if (!expand) {
+      checkbox.current.style.display = "block";
+      return true;
     } else {
-      checkboxes2.current.style.display = "none";
-      expanded2 = false;
+      checkbox.current.style.display = "none";
+      return false;
     }
-  }
-
-  function chekForm() {}
+  };
 
   return (
-    <div className={props.state.filtClassName[0]}>
-      <div className="flex-container2">
-        <label htmlFor="female" className="nameRadio-buttom">
-          Sale
-        </label>
-        <input
-          type="checkbox"
-          id="other"
-          name="gender"
-          value="other"
-          ref={sale}
-          onClick={() => {
-            onButtonClickSale(sale);
-          }}
-        />
-        <label htmlFor="female" className="nameRadio-buttom">
-          Rent
-        </label>
-        <input
-          type="checkbox"
-          id="other"
-          name="gender1"
-          value="other"
-          ref={rent}
-          onClick={() => {
-            onButtonClickRent(rent);
-          }}
-        />
+    <form
+      className={props.state.filtClassName[0]}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <div className="flex-container2" style={{ display: "flex" }}>
+        <div style={{ marginTop: "16px" }}>
+          <label htmlFor="female" className="nameRadio-buttom">
+            Sale
+          </label>
+          <input name="acceptTerms" type="checkbox" {...register("sale")} />
+          <label htmlFor="female" className="nameRadio-buttom">
+            Rent
+          </label>
+          <input name="acceptTerms" type="checkbox" {...register("rent")} />
+        </div>
+        <div></div>
       </div>
       <div className="flex-container3">
         <input
+          {...register("search_code")}
           className="margin-box"
           id="mailsend"
           type="text"
           placeholder="search by code"
         />
 
-        <form className="formchak" ref={formref}>
+        <div className="formchak">
           <div className="multiselect">
             <div
               className="selectBox"
               onClick={() => {
-                showCheckboxes();
+                expanded = showCheckboxes(expanded, checkboxes);
               }}
             >
               <select>
@@ -144,36 +124,41 @@ const Flat = (props) => {
               </label>
             </div>
           </div>
-        </form>
-        <div style={{ display: "flex" }}>
-          <input
-            className="margin-box price"
-            id="mailsend"
-            type="text"
-            placeholder="min price"
-          />
-          <input
-            className="margin-box price"
-            id="mailsend"
-            type="text"
-            placeholder="max price"
-          />
         </div>
         <input
+          {...register("rooms")}
           style={{ display: props.state.rooms }}
           className="margin-box"
           id="mailsend"
           type="number"
           placeholder="number of rooms"
         />
+        <div style={{ display: "flex" }}>
+          <input
+            {...register("min_price")}
+            className="margin-box price"
+            id="mailsend"
+            type="text"
+            placeholder="min price"
+          />
+          <input
+            {...register("max_price")}
+            className="margin-box price"
+            id="mailsend"
+            type="text"
+            placeholder="max price"
+          />
+        </div>
         <div style={{ display: props.state.floor }}>
           <input
+            {...register("min_floor")}
             className="margin-box price"
             id="mailsend"
             type="text"
             placeholder="min floor"
           />
           <input
+            {...register("max_floor")}
             className="margin-box price"
             id="mailsend"
             type="text"
@@ -182,24 +167,26 @@ const Flat = (props) => {
         </div>
         <div style={{ display: "flex" }}>
           <input
+            {...register("min_area")}
             className="margin-box price"
             id="mailsend"
             type="text"
             placeholder="min area"
           />
           <input
+            {...register("max_area")}
             className="margin-box price"
             id="mailsend"
             type="text"
             placeholder="max area"
           />
         </div>
-        <form className="formchak" style={{ display: props.state.typrBild }}>
+        <div className="formchak" style={{ display: props.state.typrBild }}>
           <div className="multiselect">
             <div
               className="selectBox"
               onClick={() => {
-                showCheckboxes2();
+                expanded2 = showCheckboxes(expanded2, checkboxes2);
               }}
             >
               <select>
@@ -222,17 +209,10 @@ const Flat = (props) => {
               </label>
             </div>
           </div>
-        </form>
-        <a
-          className="myButton"
-          onClick={() => {
-            chekForm();
-          }}
-        >
-          Search
-        </a>
+        </div>
+        <input type="submit" className="myButton" value="look for" />
       </div>
-    </div>
+    </form>
   );
 };
 

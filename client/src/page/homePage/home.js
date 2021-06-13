@@ -11,7 +11,7 @@ const Home = (props) => {
     setState((prevState) => {
       return props.state;
     });
-    console.log(props);
+    
   }, [props.state.filtClassName]);
   props.state.openHomePage();
 

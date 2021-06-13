@@ -12,19 +12,19 @@ const state = {
   home() {
     this.rooms = "inline";
     this.floor = "none";
-    this.typerBild = "inline";
+    this.typrBild = "inline";
     return this
   },
   shop() {
     this.rooms = "none";
     this.floor = "none";
-    this.typerBild = "none";
+    this.typrBild = "none";
     return this
   },
   land() {
     this.rooms = "none";
     this.floor = "none";
-    this.typerBild = "none";
+    this.typrBild = "none";
     return this
   },
   flat() {
