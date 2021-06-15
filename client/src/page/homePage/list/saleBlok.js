@@ -1,14 +1,21 @@
 import React, { Component } from "react";
 import "./list.css";
+import { NavLink } from "react-router-dom";
 
 const ListBlok = (props) => {
-  
+  // const history = useHistory();
+  //
+  // const redirect = (id) => {
+  //
+  //   console.log(history);
+  // };
+
   return (
     <div className="product-item">
       <div className="product-img">
-        <a href="">
-          <img src={props.state.log} />
-        </a>
+        <NavLink to={"/myhome/"+props.state.id}>
+          <img src={props.state.img[0]} />
+        </NavLink>
       </div>
       <div className="product-list">
         <h3>{props.state.title}</h3>
@@ -16,18 +23,18 @@ const ListBlok = (props) => {
         <span className="price">$ {props.state.price}</span>
         <div className="actions">
           <div className="add-to-cart">
-            <a href="" className="cart-button">
+            <NavLink to={"/myhome/"+props.state.id} className="cart-button">
               {props.state.area}.sq m
-            </a>
+            </NavLink>
           </div>
           <div className="add-to-links">
-            <a href="" className="cart-button">
+            <NavLink to={"/myhome/"+props.state.id} className="cart-button">
               {props.state.rooms}.room
-            </a>
-            <a href="" className="compare"></a>
-            <a href="" className="cart-button">
+            </NavLink>
+            <NavLink to={"/myhome/"+props.state.id} className="compare"></NavLink>
+            <NavLink to={"/myhome/"+props.state.id} className="cart-button">
               {props.state.flor}
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>

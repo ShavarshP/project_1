@@ -1,3 +1,12 @@
+import { useHttp } from "../myHooks/hook";
+
+// async registerHandler(){
+//   try {
+//     const data = await useHttp().request("/api/customers");
+//
+//     return data
+//   } catch (e){return e}
+// },
 const state = {
   rooms: "inline",
   floor: "flex",

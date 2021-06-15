@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .demoForm-my{
   width: 500px;
 }
@@ -5,12 +7,8 @@ textarea{
   resize: none;
 
 }
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-body {
-    background: #666;
-    font-family: 'Roboto', sans-serif;
-}
+
 
 .container2 {
     padding-top: 5rem;

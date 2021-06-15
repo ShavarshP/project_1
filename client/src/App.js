@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
-import Customers from "./components/customers";
 import Home from "./page/homePage/home";
 import { useRoutes } from "./routes";
 

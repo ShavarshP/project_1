@@ -1,4 +1,5 @@
 import React, { Component, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import "./manue.css";
 
 const Manue = (props) => {
@@ -22,7 +23,7 @@ const Manue = (props) => {
           <a className="navItems navItemActive" href="#home" ref={manueHome} onClick={() => changeClaseName(manueHome)} ><span>Home</span></a>
           <a className="navItems" href="#about" ref={manueAbout} onClick={() => changeClaseName(manueAbout)} ><span>About</span></a>
           <a className="navItems" href="#reviews" ref={manueContact} onClick={() => changeClaseName(manueContact)} ><span>Contact</span></a>
-          <a className="navItems button7" href="#reviews">+ Add new ads</a>
+          <NavLink to={"add"} className="navItems button7" >+ Add new ads</NavLink>
         </nav>
       </div>
     </header>
