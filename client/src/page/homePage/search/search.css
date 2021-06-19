@@ -72,7 +72,11 @@
   margin-top: 20px;
   margin-right: 20px;
 }
-
+.margin-box-select {
+  width: 150px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
 .margin-box {
   border: 2px solid #f1dcb9 !important;
   border-radius: 10px !important;
@@ -82,7 +86,7 @@
   font-size: 17px !important;
   font-style: italic !important;
 }
-.margin-boxselekt{
+.margin-boxselekt {
   border-radius: 10px;
 
   border: 2px solid #f1dcb9;
@@ -108,13 +112,12 @@
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.formchak{
+.formchak {
   margin-top: 20px;
   margin-top: 20px;
   margin-right: 20px;
-
 }
-.home-header3{
+.home-header3 {
   opacity: 0.9;
   margin-top: 50px;
 }
@@ -142,7 +145,7 @@
   top: 0;
   bottom: 0;
 }
-.three{
+.three {
   position: relative;
 }
 
@@ -180,32 +183,31 @@
 #checkboxes2 label:hover {
   background-color: #1e90ff;
 }
-.price{
+.price {
   width: 70px;
   margin-left: -10px;
 }
 
-
 .myButton {
   height: 20px;
   margin-top: 19px;
-	box-shadow:inset 0px 39px 0px -24px #e67a73;
-	background-color:#e4685d;
-	border-radius:4px;
-	border:1px solid #ffffff;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	padding:9px 23px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #b23e35;
+  box-shadow: inset 0px 39px 0px -24px #e67a73;
+  background-color: #e4685d;
+  border-radius: 4px;
+  border: 1px solid #ffffff;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 9px 23px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #b23e35;
 }
 .myButton:hover {
-	background-color:#eb675e;
+  background-color: #eb675e;
 }
 .myButton:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }

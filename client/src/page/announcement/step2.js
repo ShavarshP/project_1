@@ -1,67 +1,45 @@
-import React, { Component, useRef, useEffect, useState } from "react";
-import "./announcement.css";
-import { useHistory } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
 
-const Step2 = (props) => {
-  let files = [];
-  const [preview, setPreview] = useState(<div className="preview"></div>);
-  let [imgContener, setimgContener]=useState([])
-  const input = useRef();
-  const triggerInput = () => input.current.click();
-  const accept = [".png", ".jpg", ".jpeg", ".gif"];
-
-  const changeHandler = (event) => {
-    if (!event.target.files.length) {
-      return;
-    }
-
-     files = Array.from(event.target.files);
-
-     files.filter((file) => {
-
-      if (!file.type.match("image")) {
-        return;
-      }
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        const src = ev.target.result;
-        setimgContener([...imgContener, {_src: src, _alt: file.name}])
-
-        imgIs(imgContener)
-      };
-      reader.readAsDataURL(file);
-    });
-
-
+const Step2 = () => {
+  const [baseImage, setBaseImage] = useState("");
+  const uploadImage = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    setBaseImage(base64);
   };
-  const imgIs=(img)=>{
 
-    setPreview((prevState) => {
-      return   <div className="preview">{img.map((item, index)=>{
-        return (
-          <div className="preview-image" key={index} >
-            <img src={item._src} alt={item._alt} />
-          </div>
-        )
-      })}</div>;
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
     });
-  }
-
-  useEffect(() => {
-    input.current.setAttribute("multiple", true);
-    input.current.setAttribute("accept", accept.join(","));
-  }, []);
+  };
 
   return (
-    <div className="container2">
-      <div className="card">
-        <input type="file" id="file" ref={input} onChange={changeHandler} />
-        <div className="btn" onClick={triggerInput}>
-          Add photo
-        </div>
-        {preview}
-      </div>
+    <div>
+      <input
+        type="file"
+        id="file"
+        onChange={(e) => {
+          uploadImage(e);
+        }}
+      />
+      <input
+        type="file"
+        onChange={(e) => {
+          uploadImage(e);
+        }}
+      />
+      <br></br>
+      <img src={baseImage} height="200px" />
     </div>
   );
 };

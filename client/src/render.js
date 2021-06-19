@@ -6,7 +6,6 @@ import App from "./App";
 import * as registerServiceWorker from "./registerServiceWorker";
 
 export let restart = (state) => {
-  
   ReactDOM.render(
     <React.StrictMode>
       <App state={state} />

@@ -1,22 +1,24 @@
 import React, { Component, useRef } from "react";
-
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
+
 const Step1 = (props) => {
+  let history = useHistory();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    props.state.changedata(data)
+    console.log(props.state.formData);
+    history.push("/add/step2");
+  };
 
   return (
-    <form
-      className={"filter-container filterHome-filter-container"}
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <form className={"filter-container-form"} onSubmit={handleSubmit(onSubmit)}>
       <div className="flex-container2" style={{ display: "flex" }}>
         <div style={{ marginTop: "16px" }}>
           <label htmlFor="female" className="nameRadio-buttom">
@@ -132,8 +134,8 @@ const Step1 = (props) => {
           cols="50"
           {...register("description")}
         ></textarea>
-        <input type="submit" className="myButton" value="look for" />
       </div>
+      <input type="submit" className="myButton myButton-form-newdata" value="next" />
     </form>
   );
 };

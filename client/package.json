@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "js-base64": "^2.6.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-hook-form": "^7.8.4",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "1.0.17",
     "react-yandex-maps": "^4.6.0"
   },

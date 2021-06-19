@@ -1,4 +1,4 @@
-.home-filterHome{
+.home-filterHome {
   display: flex;
   padding-top: 2%;
 }
@@ -17,11 +17,12 @@
   flex-wrap: wrap;
   border-radius: 8px;
   height: auto;
-  width: 98%;
-  margin-left: -19%;
+  width: 138%;
+  margin-left: -49%;
   margin-bottom: 1px;
   background-color: #f8f8f8;
 }
+
 .searchBlok2 {
   position: sticky;
   opacity: 0.9;

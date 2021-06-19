@@ -108,7 +108,6 @@
 }
 
 #checkboxes {
-
   flex-direction: column;
   align-items: flex-start;
   display: none;
@@ -127,7 +126,7 @@
   background-color: #1e90ff;
 }
 #checkboxes2 {
-    align-items: flex-start;
+  align-items: flex-start;
   z-index: 9;
   display: none;
   border: 2px #dadada solid;

@@ -1,21 +1,30 @@
 import React, { Component, useState, useEffect } from "react";
-import Search from "../homePage/search/search";
 import "./announcement.css";
 import Step1 from "./step1";
-import Step2 from "./step2";
+import Step_2 from "./step_2";
+import { useParams, useHistory } from "react-router-dom";
 
 const Announcement = (props) => {
+  const { id } = useParams();
+  console.log(id);
+  let history = useHistory();
+  if (id != "step1" && id != "step2") {
+    history.push("/home");
+  }
+
   const [state, setState] = useState(props.state);
   useEffect(() => {
     setState((prevState) => {
       return props.state;
     });
-    7;
   }, [props.state.filtClassName]);
   return (
     <div>
-      <Step1 />
-      <Step2 />
+      {id == "step1" ? (
+        <Step1 state={props.state} />
+      ) : (
+        <Step_2 state={props.state} />
+      )}
     </div>
   );
 };

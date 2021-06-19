@@ -7,9 +7,13 @@ textarea{
   resize: none;
 
 }
-
-
-
+.filter-container-form{
+  width: 70%;
+  margin-top: 5%;
+  margin-left: 15%;
+  background-color: #ebeee8;
+  border-radius: 6px;
+}
 .container2 {
     padding-top: 5rem;
     width: 800px;
@@ -131,7 +135,7 @@ input[type=file] {
     transition: width .22s;
 }
 .margin-box2 {
-  width: 150px;
+  width: 170px;
   margin-top: 20px;
   margin-right: 20px;
 }
@@ -139,9 +143,12 @@ input[type=file] {
 .margin-box2 {
   border: 2px solid #f1dcb9 !important;
   border-radius: 10px !important;
-  height: 42px !important;
+  height: 38px !important;
   padding: 5px 50px 5px 10px !important;
   font-family: "ArTarumianKamar-Regular", sans-serif !important;
   font-size: 17px !important;
   font-style: italic !important;
 }
+/* .myButton-form-newdata{
+  justify-content: flex-start;
+} */

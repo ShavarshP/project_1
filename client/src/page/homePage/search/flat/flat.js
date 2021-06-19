@@ -1,9 +1,15 @@
-import React, { Component, useRef } from "react";
+import React, { Component, useRef, useEffect, useState } from "react";
 import "./flat.css";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const Flat = (props) => {
+  const [state, setState] = useState(false);
+
+  useEffect(() => {
+    console.log("malo");
+    setState(!state);
+  }, [props.state.floor, props.state.typrBild]);
 
   const {
     register,
@@ -11,8 +17,29 @@ const Flat = (props) => {
     watch,
     formState: { errors },
   } = useForm();
-  
-  const onSubmit = (data) => console.log(data);
+  let loc = new Set();
+  let typeBild = new Set();
+
+  const onSubmit = (data) => {
+    console.log("apapa");
+    fetch("/api/filtPage", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          console.log(result);
+        },
+        (error) => {
+          console.log(true);
+        }
+      );
+  };
 
   const checkboxes = useRef();
   const checkboxes2 = useRef();
@@ -28,6 +55,12 @@ const Flat = (props) => {
       return false;
     }
   };
+  const newType = (type) => {
+    typeBild.has(type) ? typeBild.delete(type) : typeBild.add(type);
+  };
+  const newloc = (name) => {
+    loc.has(name) ? loc.delete(name) : loc.add(name);
+  };
 
   return (
     <form
@@ -39,11 +72,21 @@ const Flat = (props) => {
           <label htmlFor="female" className="nameRadio-buttom">
             Sale
           </label>
-          <input name="acceptTerms" type="checkbox" {...register("sale")} />
+          <input
+            name="acceptTerms"
+            type="checkbox"
+            checked
+            {...register("sale")}
+          />
           <label htmlFor="female" className="nameRadio-buttom">
             Rent
           </label>
-          <input name="acceptTerms" type="checkbox" {...register("rent")} />
+          <input
+            name="acceptTerms"
+            type="checkbox"
+            checked
+            {...register("rent")}
+          />
         </div>
         <div></div>
       </div>
@@ -56,75 +99,27 @@ const Flat = (props) => {
           placeholder="search by code"
         />
 
-        <div className="formchak">
-          <div className="multiselect">
-            <div
-              className="selectBox"
-              onClick={() => {
-                expanded = showCheckboxes(expanded, checkboxes);
-              }}
-            >
-              <select>
-                <option>Select an option</option>
-              </select>
-              <div className="overSelect"></div>
-            </div>
-            <div id="checkboxes" ref={checkboxes}>
-              <label htmlFor="Ajapnyak" className="three">
-                <input type="checkbox" />
-                Ajapnyak
-              </label>
-              <label htmlFor="Arabkir" className="three">
-                <input type="checkbox" />
-                Arabkir
-              </label>
-              <label htmlFor="Avan" className="three">
-                <input type="checkbox" />
-                Avan
-              </label>
-              <label htmlFor="Davtashen" className="three">
-                <input type="checkbox" />
-                Davtashen
-              </label>
-              <label htmlFor="Erebuni" className="three">
-                <input type="checkbox" />
-                Erebuni
-              </label>
-              <label htmlFor="Kanaker-Zeytun" className="three">
-                <input type="checkbox" />
-                Kanaker-Zeytun
-              </label>
-              <label htmlFor="Kentron" className="three">
-                <input type="checkbox" />
-                Kentron
-              </label>
-              <label htmlFor="Malatia-Sebastia" className="three">
-                <input type="checkbox" />
-                Malatia-Sebastia
-              </label>
-              <label htmlFor="Nork-Marash" className="three">
-                <input type="checkbox" />
-                Nork-Marash
-              </label>
-              <label htmlFor="Nor-Nork" className="three">
-                <input type="checkbox" />
-                Nor Nork
-              </label>
-              <label htmlFor="Nubarashen" className="three">
-                <input type="checkbox" />
-                Nubarashen
-              </label>
-              <label htmlFor="Shengavit" className="three">
-                <input type="checkbox" />
-                Shengavit
-              </label>
-              <label htmlFor="other" className="three">
-                <input type="checkbox" />
-                other
-              </label>
-            </div>
-          </div>
-        </div>
+        <select
+          style={{ height: "34px" }}
+          name="Title"
+          className="margin-box2"
+          {...register("district")}
+        >
+          <option value="">district...</option>
+          <option value="Ajapnyak">Ajapnyak</option>
+          <option value="Arabkir">Arabkir</option>
+          <option value="Avan">Avan</option>
+          <option value="Davtashen">Davtashen</option>
+          <option value="Erebuni">Erebuni</option>
+          <option value="Kanaker-Zeytun">Kanaker-Zeytun</option>
+          <option value="Kentron">Kentron</option>
+          <option value="Malatia-Sebastia">Malatia-Sebastia</option>
+          <option value="Nork-Marash">Nork-Marash</option>
+          <option value="Nor Nork">Nor Nork</option>
+          <option value="Nubarashen">Nubarashen</option>
+          <option value="Shengavit">Shengavit</option>
+          <option value="other">other</option>
+        </select>
         <input
           {...register("rooms")}
           style={{ display: props.state.rooms }}
@@ -181,35 +176,17 @@ const Flat = (props) => {
             placeholder="max area"
           />
         </div>
-        <div className="formchak" style={{ display: props.state.typrBild }}>
-          <div className="multiselect">
-            <div
-              className="selectBox"
-              onClick={() => {
-                expanded2 = showCheckboxes(expanded2, checkboxes2);
-              }}
-            >
-              <select>
-                <option>А type</option>
-              </select>
-              <div className="overSelect"></div>
-            </div>
-            <div id="checkboxes2" ref={checkboxes2}>
-              <label htmlFor="stone" className="three">
-                <input type="checkbox" />
-                stone
-              </label>
-              <label htmlFor="panel" className="three">
-                <input type="checkbox" />
-                panel
-              </label>
-              <label htmlFor="monolith" className="three">
-                <input type="checkbox" />
-                monolith
-              </label>
-            </div>
-          </div>
-        </div>
+        <select
+          style={{ height: "80px" }}
+          name="Title"
+          className="margin-box2"
+          {...register("building_type")}
+        >
+          <option value="">building type...</option>
+          <option value="stone">stone</option>
+          <option value="panel">panel</option>
+          <option value="monolith">monolith</option>
+        </select>
         <input type="submit" className="myButton" value="look for" />
       </div>
     </form>

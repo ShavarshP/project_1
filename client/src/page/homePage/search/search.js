@@ -1,10 +1,9 @@
-import React, { Component, useRef, useEffect, useState} from "react";
+import React, { Component, useRef, useEffect, useState } from "react";
 import "./search.css";
 import Flat from "./flat/flat";
 
-
 const Search = (props) => {
-  const [state, setState] = useState([props.state,0]);
+  const [state, setState] = useState([props.state, 0]);
   //
   // useEffect(() => {
   //
@@ -15,44 +14,43 @@ const Search = (props) => {
   const inputE3 = useRef();
   const inputE4 = useRef();
 
-  const classCe=()=>{
+  const classCe = () => {
     inputEl.current.className = "homelog-blok";
     inputE2.current.className = "homelog-blok";
     inputE3.current.className = "homelog-blok";
     inputE4.current.className = "homelog-blok";
-  }
+  };
 
   const onButtonClickflat = (ref) => {
-    classCe()
+    classCe();
     ref.current.className = "homelog-blok log-blok";
     props.state.flat();
     setState((prevState) => {
-      return   [props.state.flat(),1];
+      return [props.state.flat(), 1];
     });
-
   };
   const onButtonClickHome = (ref) => {
-    classCe()
+    classCe();
     ref.current.className = "homelog-blok log-blok";
     props.state.home();
     setState((prevState) => {
-      return   [props.state.home(),2];
+      return [props.state.home(), 2];
     });
   };
   const onButtonClickshop = (ref) => {
-    classCe()
+    classCe();
     ref.current.className = "homelog-blok log-blok";
     props.state.shop();
     setState((prevState) => {
-      return   [props.state.shop(),3];
+      return [props.state.shop(), 3];
     });
   };
   const onButtonClickland = (ref) => {
-    classCe()
+    classCe();
     ref.current.className = "homelog-blok log-blok";
     props.state.land();
     setState((prevState) => {
-      return   [props.state.land(),4];
+      return [props.state.land(), 4];
     });
   };
   return (

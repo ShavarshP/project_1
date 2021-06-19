@@ -2,7 +2,6 @@ import React, { Component, useState } from "react";
 import "../home.css";
 
 const Slide = (prop) => {
-
   const [boxLeft, setboxLeft] = useState(0);
 
   const doSlide = () => {
@@ -17,7 +16,6 @@ const Slide = (prop) => {
   const turnSlide = (index2) => {
     setboxLeft((index) => {
       return index2 * 600;
-
     });
   };
   return (

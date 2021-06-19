@@ -8,39 +8,73 @@ import { useHttp } from "../myHooks/hook";
 //   } catch (e){return e}
 // },
 const state = {
+  formData: {
+    img: [],
+    Mobile_number: "",
+    area: "",
+    building_type: "",
+    category: "",
+    description: "",
+    district: "",
+    floor: "",
+    price: "",
+    rent: false,
+    rooms: "",
+    sale: false,
+    search_code: "",
+  },
+  changedata(data) {
+    this.formData = data;
+    return this.formData;
+  },
   rooms: "inline",
   floor: "flex",
   typrBild: "inline",
-  filtClassName:["filter-container filterHome-filter-container","list-filter-container","searchBlok","flex-container"],
-  openFiltPage(){
-    this.filtClassName = ["filter-container2 filterHome-filter-container","list-filter-container2","searchBlok2","flex-container2"]
+  filtClassName: [
+    "filter-container filterHome-filter-container",
+    "list-filter-container",
+    "searchBlok",
+    "flex-container",
+  ],
+  openFiltPage() {
+    this.filtClassName = [
+      "filter-container2 filterHome-filter-container",
+      "list-filter-container2",
+      "searchBlok2",
+      "flex-container2",
+    ];
   },
-  openHomePage(){
-    this.filtClassName = ["filter-container filterHome-filter-container","list-filter-container","searchBlok","flex-container"]
+  openHomePage() {
+    this.filtClassName = [
+      "filter-container filterHome-filter-container",
+      "list-filter-container",
+      "searchBlok",
+      "flex-container",
+    ];
   },
   home() {
     this.rooms = "inline";
     this.floor = "none";
     this.typrBild = "inline";
-    return this
+    return this;
   },
   shop() {
     this.rooms = "none";
     this.floor = "none";
     this.typrBild = "none";
-    return this
+    return this;
   },
   land() {
     this.rooms = "none";
     this.floor = "none";
     this.typrBild = "none";
-    return this
+    return this;
   },
   flat() {
     this.rooms = "inline";
     this.floor = "flex";
     this.typrBild = "inline";
-    return this
+    return this;
   },
 };
 
