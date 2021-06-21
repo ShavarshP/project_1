@@ -16,11 +16,11 @@ const Content = (props) => {
       >
         {props.state.price}$
       </a>
-      <div className="conects">{props.state.loc}</div>
+      <div className="conects">{props.state.district}</div>
       <div className="conects">street-{props.state.street}</div>
       <div className="conects">{props.state.rooms} to. flat</div>
       <div className="conects">area {props.state.area} m²</div>
-      <div className="conects">{props.state.flor} fl.</div>
+      <div className="conects">{props.state.floor} fl.</div>
       <span className="description-contener">
         <p className="conects boconi-tekst">{props.state.description}</p>
         <Map />

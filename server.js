@@ -3,14 +3,14 @@ const cors = require("cors");
 // const config = require('config');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
 app.use("/api", require("./routes/newDataRouter2"));
 app.use("/api", require("./routes/setData"));
-
+//shavarsh350700 papoyan350700?
 const PORT = 5000;
 async function start() {
   try {

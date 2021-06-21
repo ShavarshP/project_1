@@ -120,6 +120,14 @@ const Step1 = (props) => {
         />
 
         <input
+          {...register("street")}
+          className="margin-box2"
+          id="mailsend"
+          type="text"
+          placeholder="street"
+        />
+
+        <input
           type="tel"
           className="margin-box2"
           placeholder="Mobile number"
@@ -134,8 +142,8 @@ const Step1 = (props) => {
           cols="50"
           {...register("description")}
         ></textarea>
+        <input type="submit" className="myButton myButton-form-newdata" value="next" />
       </div>
-      <input type="submit" className="myButton myButton-form-newdata" value="next" />
     </form>
   );
 };

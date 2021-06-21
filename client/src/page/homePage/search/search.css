@@ -6,7 +6,7 @@
 }
 .searchBlok {
   opacity: 0.9;
-  background-color: #17b978;
+  background-color: #558776;
   border-radius: 10px;
   width: 66%;
   margin-left: 17%;
@@ -24,7 +24,7 @@
   border-radius: 50%;
   margin-top: 1%;
   margin-bottom: 1%;
-  background-color: #ffd752;
+  background-color: #EAE2B6;
   -webkit-transition: 0.55s all ease;
 }
 

@@ -22,7 +22,7 @@
   margin-top: -10px;
 }
 .home2 {
-  background-color: #dfeeda;
+  background-color: #558776;
 }
 .container {
   width: 1110px;
@@ -82,7 +82,7 @@ header .headerContent .logo {
   cursor: pointer;
 }
 header nav a.navItemActive {
-  color: #17b978;
+  color: #EAE2B6;
 }
 header nav {
   display: -webkit-box;
@@ -109,7 +109,7 @@ header nav a:hover {
   scroll-behavior: smooth;
   -webkit-transition: 0.3s all ease;
   transition: 0.3s all ease;
-  background-color: #17b978;
+  background-color: #EAE2B6;
   opacity: 0.8;
 }
 header nav a span::before {
@@ -119,7 +119,7 @@ header nav a span::before {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #17b978;
+  background-color: #EAE2B6;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transition: all 0.3s ease-in-out 0s;
@@ -135,7 +135,7 @@ header nav a span::before {
   scroll-behavior: smooth;
   -webkit-transition: 0.3s all ease;
   transition: 0.3s all ease;
-  background-color: #17b978;
+  background-color: #EAE2B6;
   opacity: 0.99;
 }
 .button7:hover {

@@ -1,16 +1,17 @@
 import React, { Component, useState, useEffect } from "react";
 import "./announcement.css";
 import Step1 from "./step1";
-import Step_2 from "./step_2";
+import Step2 from "./step_2";
+import Step3 from "./step3"
 import { useParams, useHistory } from "react-router-dom";
 
 const Announcement = (props) => {
   const { id } = useParams();
-  console.log(id);
+  let page=<Step1 state={props.state} />
   let history = useHistory();
-  if (id != "step1" && id != "step2") {
-    history.push("/home");
-  }
+  // if (id != "step1" && id != "step2") {
+  //   history.push("/home");
+  // }
 
   const [state, setState] = useState(props.state);
   useEffect(() => {
@@ -18,13 +19,21 @@ const Announcement = (props) => {
       return props.state;
     });
   }, [props.state.filtClassName]);
+  console.log(id);
+  switch (id) {
+    case "step1":
+    page=<Step1 state={props.state} />
+    break;
+    case "step2":
+    page=<Step2 state={props.state} />
+    break;
+    case "step3":
+    page=<Step3 state={props.state.formData}/>
+    break;
+  }
   return (
     <div>
-      {id == "step1" ? (
-        <Step1 state={props.state} />
-      ) : (
-        <Step_2 state={props.state} />
-      )}
+      {page}
     </div>
   );
 };

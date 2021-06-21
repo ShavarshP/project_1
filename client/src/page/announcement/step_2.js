@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import { Base64 } from "js-base64";
 
-const Step_2 = (props) => {
+const Step2 = (props) => {
+  let history = useHistory();
   let files = [];
   let myimges = [];
   const [preview, setPreview] = useState(<div className="preview"></div>);
@@ -26,8 +28,8 @@ const Step_2 = (props) => {
         const src = ev.target.result;
         myimges = [...myimges, src];
 
-        console.log(Base64.encodeURI(src));
-        console.log(src);
+        // console.log(Base64.encodeURI(src));
+        // console.log(src);
         if (index == files.length - 1) {
           setimgContener([...imgContener, ...myimges]);
         }
@@ -57,32 +59,33 @@ const Step_2 = (props) => {
     input.current.setAttribute("accept", accept.join(","));
   }, []);
 
-  const post = () => {
+  const next = async () => {
     props.state.formData.img = imgContener;
-    console.log(props.state.formData);
-    fetch("/api/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-
-      body: JSON.stringify(props.state.formData),
-    })
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log(result);
-        },
-        (error) => {
-          console.log(true);
-        }
-      );
+    // console.log(props.state.formData);
+    // await fetch("/api/add2", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //
+    //   body: JSON.stringify(props.state.formData),
+    // })
+    //   .then((res) => res.json())
+    //   .then(
+    //     (result) => {
+    //       console.log(result);
+    //     },
+    //     (error) => {
+    //       console.log(true);
+    //     }
+    //   );
+      history.push("/add/step3");
   };
   return (
     <div className="container2">
       <div className="card">
         <input type="file" id="file" ref={input} onChange={changeHandler} />
-        <div className="btn" onClick={triggerInput}>
+        <div className="btn-cont" onClick={triggerInput}>
           Add photo
         </div>
         {preview}
@@ -91,10 +94,10 @@ const Step_2 = (props) => {
         type="submit"
         className="myButton myButton-form-newdata"
         value="next"
-        onClick={post}
+        onClick={next}
       />
     </div>
   );
 };
 
-export default Step_2;
+export default Step2;

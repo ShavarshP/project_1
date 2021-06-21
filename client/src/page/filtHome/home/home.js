@@ -3,6 +3,7 @@ import "./home.css";
 import Slide from "./slideShowe/slide";
 import Content from "./content/content";
 import { useParams } from "react-router-dom";
+import Block from "./ControlBlock/block";
 
 const Home = (props) => {
   const [state, setState] = useState(props.state);
@@ -36,11 +37,12 @@ const Home = (props) => {
     <div>
       {mydata ? (
         <div className="content-home">
-          <Slide img={mydata[0].img} /> <Content state={mydata[0]} />
+          <Slide img={mydata[0].img} /> <Content state={mydata[0]}/>
         </div>
       ) : (
         <div></div>
       )}
+      <Block />
     </div>
   );
 };

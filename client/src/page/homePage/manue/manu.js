@@ -17,19 +17,19 @@ const Manue = (props) => {
       <header>
         <div className="container headerContainer">
           <div className="headerContent">
-            <a className="logo" href="">
+            <NavLink to={"/home"} className="logo" href="">
               DivineBroker<span>.</span>
-            </a>
+            </NavLink>
           </div>
           <nav className="nav headerNav">
-            <a
+            <NavLink to={"/home"}
               className="navItems navItemActive"
               href="#home"
               ref={manueHome}
               onClick={() => changeClaseName(manueHome)}
             >
               <span>Home</span>
-            </a>
+            </NavLink>
             <a
               className="navItems"
               href="#about"
@@ -46,7 +46,7 @@ const Manue = (props) => {
             >
               <span>Contact</span>
             </a>
-            <NavLink to={"add/step1"} className="navItems button7">
+            <NavLink to={"/add/step1"} className="navItems button7">
               + Add new ads
             </NavLink>
           </nav>

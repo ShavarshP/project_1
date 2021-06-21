@@ -9,6 +9,7 @@ import { useHttp } from "../myHooks/hook";
 // },
 const state = {
   formData: {
+    street: "",
     img: [],
     Mobile_number: "",
     area: "",
@@ -22,6 +23,7 @@ const state = {
     rooms: "",
     sale: false,
     search_code: "",
+    loc: "",
   },
   changedata(data) {
     this.formData = data;
