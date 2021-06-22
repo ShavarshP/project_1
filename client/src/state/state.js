@@ -8,6 +8,20 @@ import { useHttp } from "../myHooks/hook";
 //   } catch (e){return e}
 // },
 const state = {
+  filt: {
+    sale: true,
+    rent: true,
+    search_code: "",
+    district: "",
+    rooms: "",
+    min_price: "",
+    max_price: "",
+    min_floor: "",
+    max_floor: "",
+    min_area: "",
+    max_area: "",
+    building_type: "",
+  },
   formData: {
     street: "",
     img: [],

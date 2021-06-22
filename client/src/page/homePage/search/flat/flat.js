@@ -5,9 +5,8 @@ import { useForm } from "react-hook-form";
 
 const Flat = (props) => {
   const [state, setState] = useState(false);
-
+  let history = useHistory();
   useEffect(() => {
-    console.log("malo");
     setState(!state);
   }, [props.state.floor, props.state.typrBild]);
 
@@ -21,7 +20,7 @@ const Flat = (props) => {
   let typeBild = new Set();
 
   const onSubmit = (data) => {
-    console.log("apapa");
+    console.log(data);
     fetch("/api/filtPage", {
       method: "POST",
       headers: {
@@ -33,7 +32,8 @@ const Flat = (props) => {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
+
+          history.push("/filtPage")
         },
         (error) => {
           console.log(true);

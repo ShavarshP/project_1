@@ -2,7 +2,6 @@ import React, { Component, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-
 const Step1 = (props) => {
   let history = useHistory();
   const {
@@ -12,8 +11,7 @@ const Step1 = (props) => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    props.state.changedata(data)
-    console.log(props.state.formData);
+    props.state.changedata(data);
     history.push("/add/step2");
   };
 
@@ -142,7 +140,11 @@ const Step1 = (props) => {
           cols="50"
           {...register("description")}
         ></textarea>
-        <input type="submit" className="myButton myButton-form-newdata" value="next" />
+        <input
+          type="submit"
+          className="myButton myButton-form-newdata"
+          value="next"
+        />
       </div>
     </form>
   );

@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from "react";
 import Search from "../search/search";
 import List from "../list/list";
 import Footer from "../footer/footer";
+import Loading from  "../../../loading/loading"
 // import { useParams } from "react-router-dom";
 import filtHome from "./filtHome.module.css";
 
@@ -33,13 +34,14 @@ const FiltPage = (props) => {
   }, []);
   return (
     <div>
+
       {mydata ? (
         <div className="home home-filterHome">
           {" "}
           <Search state={state} /> <List state={state} data={mydata} />
         </div>
       ) : (
-        <div></div>
+        <Loading/>
       )}
       <Footer />
     </div>

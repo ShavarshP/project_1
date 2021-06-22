@@ -1,6 +1,7 @@
 .home-filterHome {
   display: flex;
   padding-top: 2%;
+
 }
 
 .filter-container2 {
@@ -21,13 +22,15 @@
   margin-left: -49%;
   margin-bottom: 1px;
   background-color: #f8f8f8;
+  min-width: 350px;
 }
 
 .searchBlok2 {
   position: sticky;
   opacity: 0.9;
-  background-color: #17b978;
+  background-color: #558776;
   border-radius: 10px;
+
   width: 56%;
   margin-left: 10%;
   padding-bottom: 2%;
@@ -36,6 +39,7 @@
   margin-top: 10px;
   display: none;
   flex-wrap: wrap;
+
   height: 100%;
   width: 100%;
   align-content: space-between;

@@ -79,7 +79,7 @@ const Step2 = (props) => {
     //       console.log(true);
     //     }
     //   );
-      history.push("/add/step3");
+    history.push("/add/step3");
   };
   return (
     <div className="container2">

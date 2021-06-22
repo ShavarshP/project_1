@@ -3,7 +3,7 @@ import "./content.css";
 import Map from "../map/map";
 
 const Content = (props) => {
-  console.log(props);
+
   return (
     <div className="conect-contener">
       <a

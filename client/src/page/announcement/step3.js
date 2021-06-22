@@ -1,38 +1,48 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Slide from "../filtHome/home/slideShowe/slide";
 import Content from "../filtHome/home/content/content";
 import "./announcement.css";
+import Loading from  "../../loading/loading"
 
 const Step2 = (props) => {
+  const [loading, setLoading] = useState(<div></div>);
+  let history = useHistory();
+
   // <div className="content-home">
   //   <Slide  /> <Content />
   // </div>
   // <Slide img={mydata[0].img} /> <Content state={mydata[0]}/>
   const edit = () => {
-    console.log(props.state);
+
   };
   const confirm = async () => {
-
-    await fetch("/api/add2", {
+    setLoading(<Loading/>)
+    await fetch("/api/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
 
-      body: JSON.stringify(props.state ),
+      body: JSON.stringify(props.state),
     })
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
+          console.log("maladec");
+          setLoading(<div></div>)
+          history.push("/home");
         },
         (error) => {
+          setLoading(<div></div>)
           console.log(true);
         }
       );
+
   };
   return (
     <div>
+    {loading}
       <div className="home2 home3-home">
         <header>
           <div className="container headerContainer">

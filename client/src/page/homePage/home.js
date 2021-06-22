@@ -29,7 +29,7 @@ const Home = (props) => {
   // const getData = useCallback(async () => {
   //   try {
   //     const fetched = await useHttp().request("/api/houses");
-  //     console.log("maladec");
+
   //     setData(fetched)
   //   } catch (e) {}
   // }, [mydata])

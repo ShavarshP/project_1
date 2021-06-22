@@ -3,7 +3,7 @@ const Home = require("../models/Home");
 const router = Router();
 
 // /api/auth/register
-router.post("/add2", async (req, res) => {
+router.post("/add", async (req, res) => {
   try {
     console.log("maladec");
     const {
@@ -22,7 +22,7 @@ router.post("/add2", async (req, res) => {
       description,
       img,
     } = req.body;
-
+    console.log(req.body)
     const home = new Home({
       img: img,
       Mobile_number: Mobile_number,

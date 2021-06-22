@@ -12,14 +12,14 @@ const Home = (props) => {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log(id);
+
     fetch("/api/myhome", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
 
-      body: JSON.stringify({ id: id }),
+      body: JSON.stringify({ _id: id }),
     })
       .then((res) => res.json())
       .then(
