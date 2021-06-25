@@ -3,7 +3,8 @@ import { useHistory } from "react-router-dom";
 import Slide from "../filtHome/home/slideShowe/slide";
 import Content from "../filtHome/home/content/content";
 import "./announcement.css";
-import Loading from  "../../loading/loading"
+import Loading from "../../loading/loading";
+import Header from "../filtHome/header/header";
 
 const Step2 = (props) => {
   const [loading, setLoading] = useState(<div></div>);
@@ -13,11 +14,9 @@ const Step2 = (props) => {
   //   <Slide  /> <Content />
   // </div>
   // <Slide img={mydata[0].img} /> <Content state={mydata[0]}/>
-  const edit = () => {
-
-  };
+  const edit = () => {};
   const confirm = async () => {
-    setLoading(<Loading/>)
+    setLoading(<Loading />);
     await fetch("/api/add", {
       method: "POST",
       headers: {
@@ -30,21 +29,21 @@ const Step2 = (props) => {
       .then(
         (result) => {
           console.log("maladec");
-          setLoading(<div></div>)
+          setLoading(<div></div>);
           history.push("/home");
         },
         (error) => {
-          setLoading(<div></div>)
+          setLoading(<div></div>);
           console.log(true);
         }
       );
-
   };
   return (
-    <div>
-    {loading}
+    <div style={{ marginBottom: "200px" }}>
+      <Header />
+      {loading}
       <div className="home2 home3-home">
-        <header>
+        <header style={{ backgroundColor: "#A3A847" }}>
           <div className="container headerContainer">
             <div className="headerContent">
               <a onClick={edit} className="navItems button7 button8">

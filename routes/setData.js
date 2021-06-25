@@ -5,7 +5,6 @@ const router = Router();
 // /api/auth/register
 router.post("/add", async (req, res) => {
   try {
-    console.log("maladec");
     const {
       sale,
       rent,
@@ -22,7 +21,7 @@ router.post("/add", async (req, res) => {
       description,
       img,
     } = req.body;
-    console.log(req.body)
+    console.log(req.body);
     const home = new Home({
       img: img,
       Mobile_number: Mobile_number,
@@ -40,9 +39,8 @@ router.post("/add", async (req, res) => {
       search_code: search_code,
       loc: "",
     });
-
     await home.save();
-
+    console.log("maladec");
     res.status(201).json({ message: "Пользователь создан" });
   } catch (e) {
     console.log(e);

@@ -3,12 +3,6 @@ import "./list.css";
 import { NavLink } from "react-router-dom";
 
 const ListBlok = (props) => {
-  // const history = useHistory();
-  //
-  // const redirect = (id) => {
-  //
-  //   console.log(history);
-  // };
 
   return (
     <div className="product-item">

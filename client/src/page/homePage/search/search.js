@@ -4,10 +4,6 @@ import Flat from "./flat/flat";
 
 const Search = (props) => {
   const [state, setState] = useState([props.state, 0]);
-  //
-  // useEffect(() => {
-  //
-  // }, [state]);
 
   const inputEl = useRef();
   const inputE2 = useRef();
@@ -108,7 +104,7 @@ const Search = (props) => {
             </div>
           </div>
         </div>
-        <Flat state={state[0]} />
+        <Flat state={state[0]} getdata={props.getdata} />
       </div>
     </header>
   );

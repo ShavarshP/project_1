@@ -15,7 +15,6 @@ const Blok = (props) => {
     } else {
       button.current.classList.add("samilpaken");
       span.current.innerText = "Are you sure?";
-
     }
   };
 

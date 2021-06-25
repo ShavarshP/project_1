@@ -4,67 +4,34 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const Flat = (props) => {
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(props.state.filt);
   let history = useHistory();
-  useEffect(() => {
-    setState(!state);
-  }, [props.state.floor, props.state.typrBild]);
-
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  let loc = new Set();
-  let typeBild = new Set();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    fetch("/api/filtPage", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then(
-        (result) => {
-
-          history.push("/filtPage")
-        },
-        (error) => {
-          console.log(true);
-        }
-      );
-  };
-
-  const checkboxes = useRef();
-  const checkboxes2 = useRef();
-  let expanded = false;
-  let expanded2 = false;
-
-  const showCheckboxes = (expand, checkbox) => {
-    if (!expand) {
-      checkbox.current.style.display = "block";
-      return true;
-    } else {
-      checkbox.current.style.display = "none";
-      return false;
+  const onSubmit = () => {
+    history.push("/filtPage");
+    if (props.getdata) {
+      props.getdata();
     }
+    // props.state.filt = data;
   };
-  const newType = (type) => {
-    typeBild.has(type) ? typeBild.delete(type) : typeBild.add(type);
-  };
-  const newloc = (name) => {
-    loc.has(name) ? loc.delete(name) : loc.add(name);
+
+  const search = (data) => {
+    console.log(data);
+    data.search = props.state.filt.search;
+    props.state.filt = data;
+    setState(data);
   };
 
   return (
     <form
       className={props.state.filtClassName[0]}
+      onChange={handleSubmit(search)}
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="flex-container2" style={{ display: "flex" }}>
@@ -75,8 +42,8 @@ const Flat = (props) => {
           <input
             name="acceptTerms"
             type="checkbox"
-            checked
             {...register("sale")}
+            value={state.sale}
           />
           <label htmlFor="female" className="nameRadio-buttom">
             Rent
@@ -84,8 +51,8 @@ const Flat = (props) => {
           <input
             name="acceptTerms"
             type="checkbox"
-            checked
             {...register("rent")}
+            value={state.rent}
           />
         </div>
         <div></div>
@@ -97,6 +64,7 @@ const Flat = (props) => {
           id="mailsend"
           type="text"
           placeholder="search by code"
+          value={state.search_code}
         />
 
         <select
@@ -104,6 +72,7 @@ const Flat = (props) => {
           name="Title"
           className="margin-box2"
           {...register("district")}
+          value={state.district}
         >
           <option value="">district...</option>
           <option value="Ajapnyak">Ajapnyak</option>
@@ -121,12 +90,21 @@ const Flat = (props) => {
           <option value="other">other</option>
         </select>
         <input
+          {...register("street")}
+          className="margin-box"
+          id="mailsend"
+          type="text"
+          placeholder="street"
+          value={state.street}
+        />
+        <input
           {...register("rooms")}
           style={{ display: props.state.rooms }}
           className="margin-box"
           id="mailsend"
           type="number"
           placeholder="number of rooms"
+          value={state.rooms}
         />
         <div style={{ display: "flex" }}>
           <input
@@ -135,6 +113,7 @@ const Flat = (props) => {
             id="mailsend"
             type="text"
             placeholder="min price"
+            value={state.min_price}
           />
           <input
             {...register("max_price")}
@@ -142,6 +121,7 @@ const Flat = (props) => {
             id="mailsend"
             type="text"
             placeholder="max price"
+            value={state.max_price}
           />
         </div>
         <div style={{ display: props.state.floor }}>
@@ -151,6 +131,7 @@ const Flat = (props) => {
             id="mailsend"
             type="text"
             placeholder="min floor"
+            value={state.min_floor}
           />
           <input
             {...register("max_floor")}
@@ -158,6 +139,7 @@ const Flat = (props) => {
             id="mailsend"
             type="text"
             placeholder="max floor"
+            value={state.max_floor}
           />
         </div>
         <div style={{ display: "flex" }}>
@@ -167,6 +149,7 @@ const Flat = (props) => {
             id="mailsend"
             type="text"
             placeholder="min area"
+            value={state.min_area}
           />
           <input
             {...register("max_area")}
@@ -174,6 +157,7 @@ const Flat = (props) => {
             id="mailsend"
             type="text"
             placeholder="max area"
+            value={state.max_area}
           />
         </div>
         <select
@@ -181,13 +165,18 @@ const Flat = (props) => {
           name="Title"
           className="margin-box2"
           {...register("building_type")}
+          value={state.building_type}
         >
           <option value="">building type...</option>
           <option value="stone">stone</option>
           <option value="panel">panel</option>
           <option value="monolith">monolith</option>
         </select>
-        <input type="submit" className="myButton" value="look for" />
+        <input
+          type="submit"
+          className="myButton"
+          value="look for"
+        />
       </div>
     </form>
   );

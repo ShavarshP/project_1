@@ -1,7 +1,6 @@
 .home-filterHome {
   display: flex;
   padding-top: 2%;
-
 }
 
 .filter-container2 {
@@ -18,8 +17,8 @@
   flex-wrap: wrap;
   border-radius: 8px;
   height: auto;
-  width: 138%;
-  margin-left: -49%;
+  width: 118%;
+  margin-left: -19%;
   margin-bottom: 1px;
   background-color: #f8f8f8;
   min-width: 350px;
@@ -31,7 +30,7 @@
   background-color: #558776;
   border-radius: 10px;
 
-  width: 56%;
+  width: 60%;
   margin-left: 10%;
   padding-bottom: 2%;
 }

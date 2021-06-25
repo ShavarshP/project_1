@@ -25,14 +25,14 @@ button .cleverlypaired {
   text-align: center;
   color: #f8f9f8;
   font-size: 18px;
-  -webkit-transition: .3s color;
-  transition: .3s color;
+  -webkit-transition: 0.3s color;
+  transition: 0.3s color;
   border-radius: 2px;
 }
 button .cleverlypaired .fa {
   width: 30px;
-  -webkit-transition: .2s all;
-  transition: .2s all;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
 }
 button .cleverlypaired .fa-check {
   color: #2ca06a;
@@ -41,7 +41,7 @@ button .cleverlypaired .fa-question {
   color: #2085e8;
 }
 button .cleverlypaired:after {
-  content: ' ';
+  content: " ";
   display: block;
   position: absolute;
   width: 5px;
@@ -51,8 +51,8 @@ button .cleverlypaired:after {
   background: #2c343c;
   top: 12.5px;
   right: 1px;
-  -webkit-transition: .2s right;
-  transition: .2s right;
+  -webkit-transition: 0.2s right;
+  transition: 0.2s right;
   z-index: 1;
 }
 
@@ -67,8 +67,8 @@ button .kedeverything {
   line-height: 29.9px;
   color: #f5f3f3;
   font-weight: 300;
-  -webkit-transition: .3s all;
-  transition: .3s all;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
@@ -81,11 +81,11 @@ button .kedeverything span {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  -webkit-transition: .3s all;
-  transition: .3s all;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
 }
 button:hover .cleverlypaired {
-  color: #F34541;
+  color: #f34541;
   border-radius: 0;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
@@ -113,7 +113,7 @@ button.samilpaken .cleverlypaired:after {
   right: -2px;
 }
 button.samilpaken .kedeverything {
-  background: #2492FF;
+  background: #2492ff;
   width: 119px;
 }
 button.samilpaken .kedeverything span {
@@ -133,7 +133,7 @@ button.done .cleverlypaired:after {
   right: -2px;
 }
 button.done .kedeverything {
-  background: #38B87C;
+  background: #38b87c;
   width: 119px;
 }
 button.done .kedeverything span {
@@ -143,26 +143,26 @@ button.done .kedeverything span {
 
 @-webkit-keyframes fadeInZoom {
   0% {
-  opacity: 0;
-  -webkit-transform: scale(0.7);
-  transform: scale(0.7);
+    opacity: 0;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
   }
   100% {
-  opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
 
 @keyframes fadeInZoom {
   0% {
-  opacity: 0;
-  -webkit-transform: scale(0.7);
-  transform: scale(0.7);
+    opacity: 0;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
   }
   100% {
-  opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }

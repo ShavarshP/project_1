@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import "./announcement.css";
 import Step1 from "./step1";
-import Step2 from "./step_2";
+import Step2 from "./step2";
 import Step3 from "./step3";
 import { useParams, useHistory } from "react-router-dom";
 

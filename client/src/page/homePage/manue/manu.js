@@ -22,7 +22,8 @@ const Manue = (props) => {
             </NavLink>
           </div>
           <nav className="nav headerNav">
-            <NavLink to={"/home"}
+            <NavLink
+              to={"/home"}
               className="navItems navItemActive"
               href="#home"
               ref={manueHome}

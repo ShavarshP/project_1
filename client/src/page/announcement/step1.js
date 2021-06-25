@@ -108,7 +108,13 @@ const Step1 = (props) => {
           type="text"
           placeholder="floor"
         />
-
+        <input
+          {...register("building_floors")}
+          className="margin-box2"
+          id="mailsend"
+          type="text"
+          placeholder="building floors"
+        />
         <input
           {...register("area")}
           className="margin-box2"
@@ -140,12 +146,12 @@ const Step1 = (props) => {
           cols="50"
           {...register("description")}
         ></textarea>
-        <input
-          type="submit"
-          className="myButton myButton-form-newdata"
-          value="next"
-        />
       </div>
+      <input
+      type="submit"
+      className="myButton myButton-form-newdata"
+      value="next"
+      />
     </form>
   );
 };

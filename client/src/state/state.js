@@ -9,18 +9,20 @@ import { useHttp } from "../myHooks/hook";
 // },
 const state = {
   filt: {
-    sale: true,
-    rent: true,
-    search_code: "",
-    district: "",
-    rooms: "",
-    min_price: "",
-    max_price: "",
-    min_floor: "",
-    max_floor: "",
-    min_area: "",
-    max_area: "",
+    search: "flat",
     building_type: "",
+    district: "",
+    max_area: "",
+    max_floor: "",
+    max_price: "",
+    min_area: "",
+    min_floor: "",
+    min_price: "",
+    rent: false,
+    rooms: "",
+    sale: false,
+    search_code: "",
+    street: "",
   },
   formData: {
     street: "",
@@ -72,24 +74,28 @@ const state = {
     this.rooms = "inline";
     this.floor = "none";
     this.typrBild = "inline";
+    this.filt.search = "home";
     return this;
   },
   shop() {
     this.rooms = "none";
     this.floor = "none";
     this.typrBild = "none";
+    this.filt.search = "shop";
     return this;
   },
   land() {
     this.rooms = "none";
     this.floor = "none";
     this.typrBild = "none";
+    this.filt.search = "land";
     return this;
   },
   flat() {
     this.rooms = "inline";
     this.floor = "flex";
     this.typrBild = "inline";
+    this.filt.search = "flat";
     return this;
   },
 };
