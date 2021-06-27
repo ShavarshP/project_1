@@ -15,7 +15,7 @@ const FiltPage = (props) => {
   props.state.openFiltPage();
 
   const getdata = () => {
-    setData(null)
+    setData(null);
     console.log("apres shavarsh");
     fetch("/api/filtPage", {
       method: "POST",
@@ -49,9 +49,10 @@ const FiltPage = (props) => {
       {mydata ? (
         <div>
           <div className="home home-filterHome">
-            {" "}
-            <Search state={state} getdata={getdata} />{" "}
+            <Search state={state} getdata={getdata} />
+            <div style={{marginRight: "2%"}}>
             <List state={state} data={mydata} />
+            </div>
           </div>
           <Footer />
         </div>

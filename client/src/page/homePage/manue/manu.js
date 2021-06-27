@@ -31,17 +31,15 @@ const Manue = (props) => {
             >
               <span>Home</span>
             </NavLink>
-            <a
+            <NavLink to={"/about"}
               className="navItems"
-              href="#about"
               ref={manueAbout}
               onClick={() => changeClaseName(manueAbout)}
             >
               <span>About</span>
-            </a>
+            </NavLink>
             <a
               className="navItems"
-              href="#reviews"
               ref={manueContact}
               onClick={() => changeClaseName(manueContact)}
             >

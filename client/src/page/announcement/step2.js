@@ -61,24 +61,6 @@ const Step2 = (props) => {
 
   const next = async () => {
     props.state.formData.img = imgContener;
-    // console.log(props.state.formData);
-    // await fetch("/api/add2", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //
-    //   body: JSON.stringify(props.state.formData),
-    // })
-    //   .then((res) => res.json())
-    //   .then(
-    //     (result) => {
-    //       console.log(result);
-    //     },
-    //     (error) => {
-    //       console.log(true);
-    //     }
-    //   );
     history.push("/add/step3");
   };
   return (

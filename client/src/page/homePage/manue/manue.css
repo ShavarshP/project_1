@@ -1,6 +1,7 @@
 .header__top {
   background-color: #8c8c8c;
   display: flex;
+  
 }
 
 .header__logo {
@@ -52,6 +53,7 @@ header .container {
 }
 header .container.headerContainer {
   min-height: 69px;
+  width: 90%;
 }
 header .headerContent {
   display: -webkit-box;

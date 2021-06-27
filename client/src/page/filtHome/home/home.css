@@ -1,7 +1,7 @@
 .contener-slid {
   margin-top: 100px;
   width: 636px;
-  background-color: #c6d8c4;
+  background-color: #558776;
   border-style: ridge;
 
   display: inline-block;
@@ -36,7 +36,7 @@
   height: auto;
   width: 600px;
   left: 18px;
-  background-color: #dfeeda;
+  background-color: #F9F9F9;
   bottom: 20px;
 }
 .imgSlid-smol {

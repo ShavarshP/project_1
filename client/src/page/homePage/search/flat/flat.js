@@ -23,7 +23,6 @@ const Flat = (props) => {
 
   const search = (data) => {
     console.log(data);
-    data.search = props.state.filt.search;
     props.state.filt = data;
     setState(data);
   };
@@ -172,11 +171,7 @@ const Flat = (props) => {
           <option value="panel">panel</option>
           <option value="monolith">monolith</option>
         </select>
-        <input
-          type="submit"
-          className="myButton"
-          value="look for"
-        />
+        <input type="submit" className="myButton" value="look for" />
       </div>
     </form>
   );

@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import "./announcement.css";
+import Header from "../filtHome/header/header";
 import Step1 from "./step1";
 import Step2 from "./step2";
 import Step3 from "./step3";
@@ -31,7 +32,7 @@ const Announcement = (props) => {
       page = <Step3 state={props.state.formData} />;
       break;
   }
-  return <div>{page}</div>;
+  return <div> <Header />{page}</div>;
 };
 
 export default Announcement;

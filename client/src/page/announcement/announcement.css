@@ -16,11 +16,12 @@ textarea{
 }
 .container2 {
     padding-top: 5rem;
-    width: 800px;
+    width: 700px;
     margin: 0 auto;
 }
 
 .card {
+  margin-top: 4%;
     border-radius: 6px;
     background: #EAE2B6;
     border: 1px solid #A3A847;

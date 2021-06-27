@@ -1,7 +1,7 @@
 .conect-contener {
   width: 36%;
   height: auto;
-  background-color: #f3fff6;
+  background-color: #EAE2B6;
   margin-right: 40px;
   border-radius: 2px;
   display: flex;
@@ -25,9 +25,9 @@
   margin-right: 30px;
 }
 .description-contener {
-  width: 100%;
+  width: 99%;
   position: relative;
   top: 10%;
-  background-color: #ffffff;
+  background-color: #F9F9F9;
   border-style: ridge;
 }

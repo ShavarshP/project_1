@@ -1,12 +1,4 @@
-import { useHttp } from "../myHooks/hook";
 
-// async registerHandler(){
-//   try {
-//     const data = await useHttp().request("/api/customers");
-//
-//     return data
-//   } catch (e){return e}
-// },
 const state = {
   filt: {
     search: "flat",
@@ -99,5 +91,8 @@ const state = {
     return this;
   },
 };
+// localStorage.setItem('filt', state.filt)
+// (localStorage.getItem('filt'))?state.filt=localStorage.getItem('filt') :localStorage.setItem('filt', state.filt)
+
 
 export default state;

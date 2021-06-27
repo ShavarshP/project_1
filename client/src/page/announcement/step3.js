@@ -4,17 +4,13 @@ import Slide from "../filtHome/home/slideShowe/slide";
 import Content from "../filtHome/home/content/content";
 import "./announcement.css";
 import Loading from "../../loading/loading";
-import Header from "../filtHome/header/header";
+
 
 const Step2 = (props) => {
   const [loading, setLoading] = useState(<div></div>);
   let history = useHistory();
-
-  // <div className="content-home">
-  //   <Slide  /> <Content />
-  // </div>
-  // <Slide img={mydata[0].img} /> <Content state={mydata[0]}/>
   const edit = () => {};
+  
   const confirm = async () => {
     setLoading(<Loading />);
     await fetch("/api/add", {
@@ -40,7 +36,6 @@ const Step2 = (props) => {
   };
   return (
     <div style={{ marginBottom: "200px" }}>
-      <Header />
       {loading}
       <div className="home2 home3-home">
         <header style={{ backgroundColor: "#A3A847" }}>
