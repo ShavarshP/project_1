@@ -7,31 +7,30 @@ import Footer from "./footer/footer";
 import { useHttp } from "../../myHooks/hook";
 import MiniLoading from "../../loading/miniLoading";
 
+
 const Home = (props) => {
   const [state, setState] = useState(props.state);
   const [mydata, setData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const {loading, request, error, clearError} = useHttp()
   props.state.openHomePage();
 
-  useEffect(() => {
-    fetch("/api/houses")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setData(result);
-        },
-        (error) => {
-          setIsLoaded(true);
-        }
-      );
-  }, []);
+  const getData = async () =>{
+    try {
+      const data = await request('/api/houses')
+      setIsLoaded(true);
+      setData(data);
+    } catch (e) {
+      setIsLoaded(true)
+    }
+  }
 
   useEffect(() => {
+    getData()
     setState((prevState) => {
       return props.state;
     });
-  }, [props.state.filtClassName]);
+  }, []);
 
   return (
     <div className="home">

@@ -6,34 +6,28 @@ import Loading from "../../../loading/loading";
 // import { useParams } from "react-router-dom";
 import filtHome from "./filtHome.module.css";
 import Header from "../../filtHome/header/header";
+import { useHttp } from "../../../myHooks/hook";
 
 const FiltPage = (props) => {
   const [state, setState] = useState(props.state);
   const [filt, setFilt] = useState(props.state.filt);
   const [mydata, setData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const { loading, request, error, clearError } = useHttp();
+
   props.state.openFiltPage();
 
-  const getdata = () => {
+  const getdata = async () => {
     setData(null);
-    console.log("apres shavarsh");
-    fetch("/api/filtPage", {
-      method: "POST",
-      headers: {
+    try {
+      const data = await request("/api/filtPage","POST", props.state.filt, {
         "Content-Type": "application/json",
-      },
-      body: JSON.stringify(props.state.filt),
-    })
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log("aprs");
-          setData(result);
-        },
-        (error) => {
-          console.log(true);
-        }
-      );
+      });
+      console.log("aprs");
+      setData(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {
@@ -50,8 +44,8 @@ const FiltPage = (props) => {
         <div>
           <div className="home home-filterHome">
             <Search state={state} getdata={getdata} />
-            <div style={{marginRight: "2%"}}>
-            <List state={state} data={mydata} />
+            <div style={{ marginRight: "2%" }}>
+              <List state={state} data={mydata} />
             </div>
           </div>
           <Footer />

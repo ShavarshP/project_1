@@ -6,8 +6,8 @@
   line-height: 50px;
   border-radius: 10px;
   position: absolute;
-  top: 150px;
-  right: 60px;
+  top: -50px;
+  right: -460px;
   transition: opacity 500ms;
   -webkit-transition: opacity 500ms; /* Safari */
   opacity: 0;
@@ -35,4 +35,10 @@ button:focus ~ .box-phone {
 }
 button:focus ~ .bt-phone {
   display: block;
+}
+.call-button{
+  position: absolute;
+  top: 700px;
+  margin-bottom: 36px;
+  left: 1%;
 }

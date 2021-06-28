@@ -4,7 +4,7 @@ import { YMaps, Map, Placemark } from "react-yandex-maps";
 
 const mapData = {
   center: [40.177414, 44.512482],
-  zoom: 5,
+  zoom: 13,
 };
 
 const coordinates = [

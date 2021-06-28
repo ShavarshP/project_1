@@ -5,27 +5,28 @@ import Content from "./content/content";
 import { useParams } from "react-router-dom";
 import Block from "./ControlBlock/block";
 import Loading from "../../../loading/loading";
+import Phone from "./phone/phone"
+import { useHttp } from "../../../myHooks/hook";
 
 const Home = (props) => {
   const [state, setState] = useState(props.state);
   const [mydata, setData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const { id } = useParams();
-  console.log(useParams());
+  const { loading, request, error, clearError } = useHttp();
+
+  const getData = async () =>{
+    try {
+      const data = await request("/api/myhome/" + id)
+      setIsLoaded(true);
+      setData(data);
+    } catch (e) {
+      setIsLoaded(true)
+    }
+  }
 
   useEffect(() => {
-
-    fetch("/api/myhome/" + id)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setData(result);
-        },
-        (error) => {
-          setIsLoaded(true);
-        }
-      );
+    getData()
   }, []);
 
   return (
@@ -36,6 +37,7 @@ const Home = (props) => {
             <Slide img={mydata[0].img} /> <Content state={mydata[0]} />
           </div>
           <Block />
+          <Phone phone={mydata[0].Mobile_number}/>
         </div>
       ) : (
         <Loading />

@@ -10,10 +10,7 @@ const Announcement = (props) => {
   const { id } = useParams();
   let page = <Step1 state={props.state} />;
   let history = useHistory();
-  // if (id != "step1" && id != "step2") {
-  //   history.push("/home");
-  // }
-
+  
   const [state, setState] = useState(props.state);
   useEffect(() => {
     setState((prevState) => {

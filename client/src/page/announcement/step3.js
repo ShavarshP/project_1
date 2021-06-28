@@ -4,36 +4,30 @@ import Slide from "../filtHome/home/slideShowe/slide";
 import Content from "../filtHome/home/content/content";
 import "./announcement.css";
 import Loading from "../../loading/loading";
-
+import { NavLink } from "react-router-dom";
+import { useHttp } from "../../myHooks/hook";
 
 const Step2 = (props) => {
   const [loading, setLoading] = useState(<div></div>);
   let history = useHistory();
   const edit = () => {};
-  
+  const { loadings, request, error, clearError } = useHttp();
+
   const confirm = async () => {
     setLoading(<Loading />);
-    await fetch("/api/add", {
-      method: "POST",
-      headers: {
+    try {
+      const data = await request("/api/add","POST", props.state, {
         "Content-Type": "application/json",
-      },
+      });
+      console.log("maladec");
+      setLoading(<div></div>);
+      history.push("/home");
+    } catch (e) {
+      console.log(e);
+    }
 
-      body: JSON.stringify(props.state),
-    })
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log("maladec");
-          setLoading(<div></div>);
-          history.push("/home");
-        },
-        (error) => {
-          setLoading(<div></div>);
-          console.log(true);
-        }
-      );
   };
+
   return (
     <div style={{ marginBottom: "200px" }}>
       {loading}
@@ -41,9 +35,13 @@ const Step2 = (props) => {
         <header style={{ backgroundColor: "#A3A847" }}>
           <div className="container headerContainer">
             <div className="headerContent">
-              <a onClick={edit} className="navItems button7 button8">
+              <NavLink
+                to={"/add/step1"}
+                onClick={edit}
+                className="navItems button7 button8"
+              >
                 edit
-              </a>
+              </NavLink>
             </div>
             <nav className="nav headerNav">
               <a onClick={confirm} className="navItems button7 button8">
