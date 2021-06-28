@@ -5,6 +5,7 @@ const router = Router();
 // /api/auth/register
 router.post("/add", async (req, res) => {
   try {
+    console.log(req.body);
     const {
       sale,
       rent,

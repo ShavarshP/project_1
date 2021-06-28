@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./content.css";
 import Map from "../map/map";
+import Phone from "../phone/phone"
 
 const Content = (props) => {
   return (
@@ -14,6 +15,7 @@ const Content = (props) => {
         }}
       >
         {props.state.price}$
+        <Phone phone={props.state.Mobile_number}/>
       </a>
       <div className="conects">{props.state.district}</div>
       <div className="conects">street-{props.state.street}</div>
