@@ -1,15 +1,14 @@
-
 const state = {
   filt: {
-    search: "flat",
+    Mobile_number: "",
+    area: "",
+    building_floors: "",
     building_type: "",
+    category: "",
+    description: "",
     district: "",
-    max_area: "",
-    max_floor: "",
-    max_price: "",
-    min_area: "",
-    min_floor: "",
-    min_price: "",
+    floor: "",
+    price: "",
     rent: false,
     rooms: "",
     sale: false,
@@ -93,6 +92,5 @@ const state = {
 };
 // localStorage.setItem('filt', state.filt)
 // (localStorage.getItem('filt'))?state.filt=localStorage.getItem('filt') :localStorage.setItem('filt', state.filt)
-
 
 export default state;

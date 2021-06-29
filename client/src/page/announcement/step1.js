@@ -1,8 +1,9 @@
-import React, { Component, useRef } from "react";
+import React, { Component, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const Step1 = (props) => {
+  const [state, setState] = useState(props.state.formData);
   let history = useHistory();
   const {
     register,
@@ -12,11 +13,22 @@ const Step1 = (props) => {
   } = useForm();
   const onSubmit = (data) => {
     props.state.changedata(data);
+    console.log(data);
     history.push("/add/step2");
   };
 
+  const changeValue = (data) => {
+    props.state.formData = data;
+    setState(data);
+
+  };
+
   return (
-    <form className={"filter-container-form"} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className={"filter-container-form"}
+      onSubmit={handleSubmit(onSubmit)}
+      onChange={handleSubmit(changeValue)}
+    >
       <div className="flex-container2" style={{ display: "flex" }}>
         <div style={{ marginTop: "16px" }}>
           <label htmlFor="female" className="nameRadio-buttom">
@@ -26,7 +38,7 @@ const Step1 = (props) => {
           <label htmlFor="female" className="nameRadio-buttom">
             Rent
           </label>
-          <input name="acceptTerms" type="checkbox" {...register("rent")} />
+          <input name="acceptTerms" type="checkbox" {...register("rent")}  />
         </div>
         <div></div>
       </div>
@@ -38,13 +50,16 @@ const Step1 = (props) => {
           id="mailsend"
           type="text"
           placeholder="search by code"
+          value={state.search_code}
         />
         <select
           style={{ height: "40px" }}
           name="Title"
           className="margin-box2"
           {...register("category")}
+          value={state.category}
         >
+          <option value="">district...</option>
           <option value="flat">flat</option>
           <option value="home">home</option>
           <option value="commercial">commercial</option>
@@ -56,6 +71,7 @@ const Step1 = (props) => {
           name="Title"
           className="margin-box2"
           {...register("district")}
+          value={state.district}
         >
           <option value="">district...</option>
           <option value="Ajapnyak">Ajapnyak</option>
@@ -78,6 +94,7 @@ const Step1 = (props) => {
           name="Title"
           className="margin-box2"
           {...register("building_type")}
+          value={state.building_type}
         >
           <option value="">building type...</option>
           <option value="stone">stone</option>
@@ -92,6 +109,7 @@ const Step1 = (props) => {
           id="mailsend"
           type="number"
           placeholder="number of rooms"
+          value={state.inline}
         />
         <input
           {...register("price")}
@@ -99,6 +117,7 @@ const Step1 = (props) => {
           id="mailsend"
           type="text"
           placeholder=" price"
+          value={state.price}
         />
 
         <input
@@ -107,6 +126,7 @@ const Step1 = (props) => {
           id="mailsend"
           type="text"
           placeholder="floor"
+          value={state.floor}
         />
         <input
           {...register("building_floors")}
@@ -114,6 +134,7 @@ const Step1 = (props) => {
           id="mailsend"
           type="text"
           placeholder="building floors"
+          value={state.building_floors}
         />
         <input
           {...register("area")}
@@ -121,6 +142,7 @@ const Step1 = (props) => {
           id="mailsend"
           type="text"
           placeholder="area"
+          value={state.area}
         />
 
         <input
@@ -129,6 +151,7 @@ const Step1 = (props) => {
           id="mailsend"
           type="text"
           placeholder="street"
+          value={state.street}
         />
 
         <input
@@ -137,6 +160,7 @@ const Step1 = (props) => {
           placeholder="Mobile number"
           name="Mobile number"
           {...register("Mobile_number")}
+          value={state.Mobile_number}
         />
         <textarea
           style={{ width: "250px", height: "300px" }}
@@ -145,21 +169,16 @@ const Step1 = (props) => {
           rows="4"
           cols="50"
           {...register("description")}
+          value={state.description}
         ></textarea>
       </div>
       <input
-      type="submit"
-      className="myButton myButton-form-newdata"
-      value="next"
+        type="submit"
+        className="myButton myButton-form-newdata"
+        value="next"
       />
     </form>
   );
 };
 
-// <input
-// type="file"
-// placeholder="Mobile number"
-// name="foto"
-// {...register("file")}
-// />
 export default Step1;

@@ -10,22 +10,23 @@ import { useHttp } from "../../myHooks/hook";
 const Step2 = (props) => {
   const [loading, setLoading] = useState(<div></div>);
   let history = useHistory();
-  const edit = () => {};
   const { loadings, request, error, clearError } = useHttp();
+
+  const edit = () => {
+    history.push("/add/step1");
+  };
 
   const confirm = async () => {
     setLoading(<Loading />);
     try {
-      const data = await request("/api/add","POST", props.state, {
+      const data = await request("/api/add", "POST", props.state, {
         "Content-Type": "application/json",
       });
-      console.log("maladec");
       setLoading(<div></div>);
       history.push("/home");
     } catch (e) {
       console.log(e);
     }
-
   };
 
   return (

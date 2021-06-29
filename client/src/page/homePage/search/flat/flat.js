@@ -5,7 +5,8 @@ import { useForm } from "react-hook-form";
 
 const Flat = (props) => {
   const [state, setState] = useState(props.state.filt);
-  let history = useHistory();
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
@@ -18,11 +19,9 @@ const Flat = (props) => {
     if (props.getdata) {
       props.getdata();
     }
-    // props.state.filt = data;
   };
 
   const search = (data) => {
-    console.log(data);
     props.state.filt = data;
     setState(data);
   };
