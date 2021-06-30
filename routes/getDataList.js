@@ -3,8 +3,9 @@ const Home = require("../models/Home");
 const router = Router();
 const createSbjectSearch = require("../module/filt_func")
 
-router.post("/filtPage", async (req, res) => {
+router.post("/filtPage/:id", async (req, res) => {
   try {
+    console.log("maladec");
     const body = req.body;
     let newBody = {};
     for (let prop in body) {
@@ -12,10 +13,12 @@ router.post("/filtPage", async (req, res) => {
         newBody[prop] = body[prop];
       }
     }
-    console.log("maladec");
+    const id = req.params;
+    console.log(id);
     const filter = await createSbjectSearch(newBody);
-
-    const candidate = await Home.find(filter).sort({ $natural: -1 });
+    const count = await Home.find(filter).countDocuments()
+    console.log("ss",count);
+    const candidate = await Home.find(filter).sort({ $natural: -1 }).skip((id.id-1)*8).limit(8);
     res.json(candidate);
   } catch (e) {
     res.status(500).json({ message: "Что-то пошло не так, попробуйте снова" });

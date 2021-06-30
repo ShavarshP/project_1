@@ -7,8 +7,6 @@ const About = (props) => {
   return (
     <div>
     <Header/>
-
-    ooooooo
     </div>
   );
 };

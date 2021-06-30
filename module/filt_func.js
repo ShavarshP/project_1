@@ -1,6 +1,5 @@
 const createSbjectSearch = (obj) => {
   let newObj = {};
-  console.log(obj);
   if (obj.min_price || obj.max_price) {
     newObj.price = {};
   }
@@ -57,7 +56,6 @@ const createSbjectSearch = (obj) => {
         break;
     }
   }
-  console.log(newObj);
   return newObj;
 };
 

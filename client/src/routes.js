@@ -21,7 +21,7 @@ export const useRoutes = (props) => {
         <Manue />
         <HomePage />
       </Route>
-      <Route path="/filtPage">
+      <Route path="/filtPage/:id">
         <FiltPage state={props.state} />
       </Route>
       <Route path="/about">

@@ -1,4 +1,14 @@
+
+const store = "createStore(reducers);"
+
+export default store;
+
+
+
+
+
 const state = {
+  countOfPage: 0,
   filt: {
     Mobile_number: "",
     area: "",
@@ -93,4 +103,4 @@ const state = {
 // localStorage.setItem('filt', state.filt)
 // (localStorage.getItem('filt'))?state.filt=localStorage.getItem('filt') :localStorage.setItem('filt', state.filt)
 
-export default state;
+export   {state, store};

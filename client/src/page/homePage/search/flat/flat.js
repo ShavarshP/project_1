@@ -15,7 +15,7 @@ const Flat = (props) => {
   } = useForm();
 
   const onSubmit = () => {
-    history.push("/filtPage");
+    history.push("/filtPage/1");
     if (props.getdata) {
       props.getdata();
     }
