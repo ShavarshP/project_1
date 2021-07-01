@@ -26,7 +26,6 @@ const FiltPage = (props) => {
       const data = await request("/api/filtPage/"+ id,"POST", props.state.filt, {
         "Content-Type": "application/json",
       });
-      console.log("aprs");
       setData(data);
     } catch (e) {
       console.log(e);
@@ -47,9 +46,9 @@ const FiltPage = (props) => {
         <div>
           <div className="home home-filterHome">
             <Search state={state} getdata={getdata} />
-            <div style={{ marginRight: "2%" }}>
-              <List state={state} data={mydata} />
-              <Next  data={mydata}/>
+            <div className="filter-list">
+              <List state={state} data={mydata.candidate} />
+              <Next  data={mydata.count}/>
             </div>
           </div>
           <Footer />

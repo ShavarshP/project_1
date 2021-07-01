@@ -50,7 +50,7 @@ const Search = (props) => {
     });
   };
   return (
-    <header className="home-header3">
+    <header className={props.state.filtClassName[4]}>
       <div className={props.state.filtClassName[2]}>
         <div className="type">
           <div className={props.state.filtClassName[3]}>

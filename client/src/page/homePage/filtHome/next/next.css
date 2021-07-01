@@ -1,8 +1,6 @@
 .wrapper{
   position: relative;
   background-color:red;
-  top: 50px;
-  left: 100px;
   width:700px;
 }
 /*****Delete this*****/
@@ -146,4 +144,7 @@
 .archive-pages .last a{
     text-indent:-154px;
   letter-spacing:10px;
+}
+.filter-list{
+
 }

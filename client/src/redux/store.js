@@ -54,6 +54,8 @@ const state = {
     "list-filter-container",
     "searchBlok",
     "flex-container",
+    "home-header3",
+    "home14-0"
   ],
   openFiltPage() {
     this.filtClassName = [
@@ -61,6 +63,8 @@ const state = {
       "list-filter-container2",
       "searchBlok2",
       "flex-container2",
+      "home-header4",
+      "home14-1"
     ];
   },
   openHomePage() {
@@ -69,6 +73,8 @@ const state = {
       "list-filter-container",
       "searchBlok",
       "flex-container",
+      "home-header3",
+      "home14-0"
     ];
   },
   home() {
