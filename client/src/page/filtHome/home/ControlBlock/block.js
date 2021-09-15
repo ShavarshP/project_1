@@ -2,7 +2,7 @@ import React, { Component, useState, useRef } from "react";
 import "./block.css";
 
 const Blok = (props) => {
-  const [state, setState] = useState(null);
+  // const [state, setState] = useState(null);
   const button = useRef();
   const span = useRef();
   const deletb = () => {

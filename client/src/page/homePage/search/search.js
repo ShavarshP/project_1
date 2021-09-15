@@ -1,4 +1,4 @@
-import React, { Component, useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./search.css";
 import Flat from "./flat/flat";
 

@@ -1,4 +1,4 @@
-import React, { Component, useRef } from "react";
+import React, { useRef } from "react";
 import "./map.css";
 import { YMaps, Map, Placemark } from "react-yandex-maps";
 

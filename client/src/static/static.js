@@ -1,11 +1,6 @@
-
-const store = "createStore(reducers);"
+const store = "createStore(reducers);";
 
 export default store;
-
-
-
-
 
 const state = {
   countOfPage: 0,
@@ -55,7 +50,7 @@ const state = {
     "searchBlok",
     "flex-container",
     "home-header3",
-    "home14-0"
+    "home14-0",
   ],
   openFiltPage() {
     this.filtClassName = [
@@ -64,7 +59,7 @@ const state = {
       "searchBlok2",
       "flex-container2",
       "home-header4",
-      "home14-1"
+      "home14-1",
     ];
   },
   openHomePage() {
@@ -74,7 +69,7 @@ const state = {
       "searchBlok",
       "flex-container",
       "home-header3",
-      "home14-0"
+      "home14-0",
     ];
   },
   home() {
@@ -109,4 +104,4 @@ const state = {
 // localStorage.setItem('filt', state.filt)
 // (localStorage.getItem('filt'))?state.filt=localStorage.getItem('filt') :localStorage.setItem('filt', state.filt)
 
-export   {state, store};
+export { state, store };

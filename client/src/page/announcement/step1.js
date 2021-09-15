@@ -1,4 +1,4 @@
-import React, { Component, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -20,7 +20,6 @@ const Step1 = (props) => {
   const changeValue = (data) => {
     props.state.formData = data;
     setState(data);
-
   };
 
   return (
@@ -38,7 +37,7 @@ const Step1 = (props) => {
           <label htmlFor="female" className="nameRadio-buttom">
             Rent
           </label>
-          <input name="acceptTerms" type="checkbox" {...register("rent")}  />
+          <input name="acceptTerms" type="checkbox" {...register("rent")} />
         </div>
         <div></div>
       </div>

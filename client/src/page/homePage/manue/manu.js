@@ -1,8 +1,8 @@
-import React, { Component, useRef } from "react";
+import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import "./manue.css";
 
-const Manue = (props) => {
+const Manue = () => {
   const manueHome = useRef();
   const manueAbout = useRef();
   const manueContact = useRef();
@@ -31,7 +31,8 @@ const Manue = (props) => {
             >
               <span>Home</span>
             </NavLink>
-            <NavLink to={"/about"}
+            <NavLink
+              to={"/about"}
               className="navItems"
               ref={manueAbout}
               onClick={() => changeClaseName(manueAbout)}

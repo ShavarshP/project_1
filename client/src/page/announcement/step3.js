@@ -10,7 +10,7 @@ import { useHttp } from "../../myHooks/hook";
 const Step2 = (props) => {
   const [loading, setLoading] = useState(<div></div>);
   let history = useHistory();
-  const { loadings, request, error, clearError } = useHttp();
+  const { request } = useHttp();
 
   const edit = () => {
     history.push("/add/step1");

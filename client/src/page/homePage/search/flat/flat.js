@@ -1,4 +1,4 @@
-import React, { Component, useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./flat.css";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";

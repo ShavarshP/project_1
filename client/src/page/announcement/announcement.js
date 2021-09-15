@@ -4,18 +4,18 @@ import Header from "../filtHome/header/header";
 import Step1 from "./step1";
 import Step2 from "./step2";
 import Step3 from "./step3";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Announcement = (props) => {
   const { id } = useParams();
   let page = <Step1 state={props.state} />;
-  let history = useHistory();
-  
-  const [state, setState] = useState(props.state);
+
+  // const [state, setState] = useState(props.state);
+
   useEffect(() => {
-    setState((prevState) => {
-      return props.state;
-    });
+    // setState((prevState) => {
+    //   return props.state;
+    // });
   }, [props.state.filtClassName]);
 
   switch (id) {
@@ -29,7 +29,13 @@ const Announcement = (props) => {
       page = <Step3 state={props.state.formData} />;
       break;
   }
-  return <div> <Header />{page}</div>;
+  return (
+    <div>
+      {" "}
+      <Header />
+      {page}
+    </div>
+  );
 };
 
 export default Announcement;

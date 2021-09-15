@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
-import { Base64 } from "js-base64";
 
 const Step2 = (props) => {
   let history = useHistory();

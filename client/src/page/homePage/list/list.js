@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import "./list.css";
 import ListBlok from "./saleBlok";
 
 const List = (props) => {
-
   const state = props.data;
 
   const render = state.map((item, i) => <ListBlok key={i} state={item} />);

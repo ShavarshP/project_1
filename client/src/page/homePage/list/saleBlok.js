@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import "./list.css";
 import { NavLink } from "react-router-dom";
 
 const ListBlok = (props) => {
-
   return (
     <div className="product-item">
       <div className="product-img">

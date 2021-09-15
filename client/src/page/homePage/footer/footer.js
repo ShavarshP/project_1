@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import "./footer.css";
 
-const Footer = (props) => {
+const Footer = () => {
   return (
     <footer className="footer-home">
       <div className="numbers-mob-1">000-000-000</div>
